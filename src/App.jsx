@@ -8,10 +8,10 @@ const App =()=>{
   return(
     <div className="app-frame">
       <Navbar/>
-      <app-body>
+      <div className="app-body">
         <Sidebar/>
         <CafeList/>
-      </app-body>
+      </div>
     </div>
   );
 };
