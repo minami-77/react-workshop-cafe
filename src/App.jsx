@@ -2,10 +2,18 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CafeList from './components/CafeList/CafeList';
 import Sidebar from './components/Sidebar/Sidebar';
+import { useState } from 'react';
 
 
 const App =()=>{
-  const cafeDatas = [
+  // useState syntax -> const [nameOfVariable, setNameOfVariable(function to modify the variabe)] = useState()
+  // use a function setCafeDatas to modify a variable cafeDatas
+  // IS SAME AS
+  // const cafeDatasState = useState([...])
+  // const cafeDatas = cafeDatasState[0]
+  // const setCafeDatas =cafeDatasState[1]
+
+  const [cafeDatas, setCafeDatas] = useState([
     {
         "picture": "https://laptopfriendly.co/images/places/tokyo/ddsk-saigon-kitchen/ddsk-saigon-kitchen--tokyo.jpg",
         "title": "DDSK SAIGON KITCHEN",
@@ -36,16 +44,21 @@ const App =()=>{
             "Food"
         ]
     }
-  ];
+  ]);
 
   const getCafes = () =>{
     console.log("Getting cafes...");
+
+    // fetch the url created by rails (backend)
     const url = "https://matcha-and-keyboard-f549965e60e7.herokuapp.com/api/v1/cafes";
+
     fetch(url)
       .then(response =>response.json())
       .then((data) => {
         console.log(data);
-        cafeDatas = data;
+        // set data(value) into cafeDatas(variable) using setCafeDatas(function)
+        setCafeDatas(data);
+        console.log(cafeDatas);
       });
   };
 

@@ -10,7 +10,10 @@ const CafeList = ({cafeDatas}) => {
       {/* <Cafe cafeData = {cafeDatas[0]}/>
       <Cafe cafeData = {cafeDatas[1]}/>
       <Cafe cafeData = {cafeDatas[2]}/> */}
-    {cafeDatas.map(cafeData => <Cafe key={cafeData.title} cafeData={cafeData} />)}
+
+      {/* increment cafeDatas array and create components (block of UI <Cafe/>) with key and value */}
+      {/* like this -> [<Cafe key="Cafe A" cafeData={...} />, <Cafe key="Cafe B" cafeData={...} />, <Cafe key="Cafe C" cafeData={...} />] */}
+      {cafeDatas.map(cafeData => <Cafe key={cafeData.title} cafeData={cafeData} />)}
     </div>
   );
 };
