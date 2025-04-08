@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 const App =()=>{
-  // useState syntax -> const [nameOfVariable, setNameOfVariable(function to modify the variabe)] = useState()
+  // useState syntax -> const [nameOfVariable, setNameOfVariable(function to modify the variabe)] = useState(initialValue)
   // use a function setCafeDatas to modify a variable cafeDatas
   // IS SAME AS
   // const cafeDatasState = useState([...])
@@ -48,7 +48,7 @@ const App =()=>{
 
   return(
     <div className="app-frame">
-      {/* pass setCafeDatas as props */}
+      {/* pass setCafeDatas as props ({setCafeDatas} = props.setCafedatas,{destruction:分割代入}) */}
       <Navbar setCafeDatas = {setCafeDatas}/>
       <div className="app-body">
         <Sidebar/>

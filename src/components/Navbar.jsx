@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../assets/logo.png'
 import SearchBar from "./Searchbar/Searchbar";
 
-/* pass setCafeDatas as props */
-function Navbar(setCafeDatas) {
+/* pass setCafeDatas as props ({setCafeDatas} = props.setCafedatas,{destruction:分割代入}) */
+function Navbar({setCafeDatas}) {
   return (
     <div className="d-flex justify-content-between align-items-center w-100 py-2 px-4 bg-success-subtle">
       <div className="d-flex align-items-center">

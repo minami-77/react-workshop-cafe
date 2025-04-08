@@ -3,13 +3,15 @@
 import React from 'react';
 import './Searchbar.css';
 
-/* pass setCafeDatas as props */
+/* pass setCafeDatas as props ({setCafeDatas} = props.setCafedatas,{destruction:分割代入}) */
 function Searchbar({setCafeDatas}) {
-  const getCafes = () => {
+  const getCafes = (event) => {
     console.log("Getting cafes...");
-
+    // set value for input keyword\
+    const keyword = event.currentTarget.value;
+    console.log(keyword);
     // fetch the url created by rails (backend)
-    const url = "https://matcha-and-keyboard-f549965e60e7.herokuapp.com/api/v1/cafes";
+    const url = `https://matcha-and-keyboard-f549965e60e7.herokuapp.com/api/v1/cafes?title=${keyword}`;
 
     fetch(url)
       .then(response =>response.json())
