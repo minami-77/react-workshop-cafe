@@ -46,30 +46,10 @@ const App =()=>{
     }
   ]);
 
-  const getCafes = () =>{
-    console.log("Getting cafes...");
-
-    // fetch the url created by rails (backend)
-    const url = "https://matcha-and-keyboard-f549965e60e7.herokuapp.com/api/v1/cafes";
-
-    fetch(url)
-      .then(response =>response.json())
-      .then((data) => {
-        console.log(data);
-        // set data(value) into cafeDatas(variable) using setCafeDatas(function)
-        setCafeDatas(data);
-        console.log(cafeDatas);
-      });
-  };
-
-
   return(
     <div className="app-frame">
-      <Navbar/>
-      {/*to call function: onClick={nameOfFunction} */}
-      <button onClick={getCafes}>
-        Get All Cafes!
-      </button>
+      {/* pass setCafeDatas as props */}
+      <Navbar setCafeDatas = {setCafeDatas}/>
       <div className="app-body">
         <Sidebar/>
         <CafeList cafeDatas={cafeDatas}/>
